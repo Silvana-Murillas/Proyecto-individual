@@ -33,7 +33,6 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Recipe,Diet } = sequelize.models;
 Recipe.belongsToMany(Diet,{through:'Recipe_Diet'})
 Diet.belongsToMany(Recipe,{through:'Recipe_Diet'})
-
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
