@@ -1,7 +1,9 @@
-const {Diet}=require('./db');
+const {Diet}=require('../db');
 
-const createDiets=async()=>{
-    await Diet.create({name:"vegan"})
+
+const getDiets=async()=>{
+  const getDiet=await Diet.findAll()
+  return getDiet;
 }
 
-createDiets();
+module.exports=getDiets;

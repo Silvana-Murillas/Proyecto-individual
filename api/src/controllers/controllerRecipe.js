@@ -1,6 +1,6 @@
 const e = require('express');
 const {Recipe,Diet}=require('../db');
-const {URL_API,API_KEY}=process.env;
+const {URL_API,API_KEY,URL_APIBYID}=process.env;
 const axios = require('axios')
 
 
@@ -101,4 +101,59 @@ const getRecipe=async(name)=>{
     return Api_bD;
 }
 
-module.exports={addRecipe,getRecipe};
+const getRecipebyidfromDB=async(id)=>{
+    const findbyid=await Recipe.findByPk(id,{
+        include:Diet
+    })
+    
+    return findbyid
+
+}
+const getRecipebyidfromApi=async(id)=>{
+    console.log(`${URL_APIBYID}${id}/information?apiKey=${API_KEY}`)
+    const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY}`);
+    const infoapi= await getInfoApi.data;
+    let diets = infoapi.diets;
+    if (infoapi.vegetarian){
+        diets.push('vegetarian');
+    }
+    const infobyId={
+        id:infoapi.id,
+        name:infoapi.title,
+        image:infoapi.image,
+        dishTypes:infoapi.dishTypes,
+        summary:infoapi.summary,
+        healthScore:infoapi.healthScore,
+        diets:diets,
+        steps:infoapi.analyzedInstructions.length&&infoapi.analyzedInstructions[0].steps.map(e=>
+            {
+                return {
+                    number:e.number,
+                    step:e.step
+                }
+            })
+
+      }
+    return infobyId;
+    
+}
+const getRecipebyid=async(id)=>{
+          
+    if(/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)){
+        try{
+            const recipebyId=await getRecipebyidfromDB(id)
+            return recipebyId;
+        }catch(error){
+            throw new Error ('Id recipe no found')
+        }
+    }
+    try{
+        const recipebyId= await getRecipebyidfromApi(id)
+        return recipebyId
+   }catch(error){
+      throw new Error ('Id recipe no found')
+   }
+
+}
+
+module.exports={addRecipe,getRecipe,getRecipebyid};
