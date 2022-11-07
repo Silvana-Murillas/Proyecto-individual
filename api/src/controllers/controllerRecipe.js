@@ -79,7 +79,7 @@ const getApi=async(name)=>{
     })
 
     if(name){
-        return info.filter(e=>e.name=name);        
+        return info.filter(e=>e.name===name);        
     }
 
     return info;

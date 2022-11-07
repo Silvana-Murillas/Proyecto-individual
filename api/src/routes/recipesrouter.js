@@ -32,13 +32,10 @@ router.get('/',async (req,res)=>{
         const {name}=req.query;
         if(name){
             const searchRecipe= await getRecipe(name)
-            res.status(201).send(searchRecipe)
-
+            return res.status(201).send(searchRecipe)
         }
         const recipes= await getRecipe();
-        res.status(201).send(recipes)
-
-        
+        return res.status(201).send(recipes)        
     } catch (error) {
        res.status(404).send(error.message)
     }
