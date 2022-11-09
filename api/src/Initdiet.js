@@ -1,7 +1,7 @@
 const {Diet}=require('./db');
 
-let defaultDiets = ["Gluten Free","dairyFree","Ketogenic","Vegetarian","Lacto-Vegetarian","Ovo-Vegetarian","Vegan","Pescetarian",
-"Paleo","Primal","Low FODMAP","Whole30"];
+let defaultDiets = ["gluten free","dairy free","ketogenic","vegetarian","lacto vegetarian","ovo vegetarian","vegan","pescatarian",
+"paleo","primal","low fodmap","whole 30","lacto ovo vegetarian"];
 
 const createDiets=async()=>{
     

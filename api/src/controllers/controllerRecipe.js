@@ -25,11 +25,14 @@ const getBd=async(name)=>{
     if(name){
         const findbyName=await Recipe.findAll({
                 where:{
-                    name
+                    name:name
                 },
                 include:{
                     model:Diet,
-                    attributes:['name']
+                    attributes:['name'],
+                    through:{
+                        attributes:[]
+                    }
                 }
         });
         return findbyName;        
@@ -53,6 +56,7 @@ const getApi=async(name)=>{
      
     const getInfoApi= await axios.get(`${URL_API}?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
     const infoapi= await getInfoApi.data.results;
+    
 
     const info=infoapi.map(e=>{
 
@@ -77,10 +81,12 @@ const getApi=async(name)=>{
                 })
             }
     })
-
+    info.forEach(rec=>rec.diets.forEach(async (d)=>await Diet.findOrCreate({where:{name:d}})))
     if(name){
         return info.filter(e=>e.name===name);        
     }
+
+   
 
     return info;
 
@@ -103,14 +109,21 @@ const getRecipe=async(name)=>{
 
 const getRecipebyidfromDB=async(id)=>{
     const findbyid=await Recipe.findByPk(id,{
-        include:Diet
+        include: [
+            {
+                model:Diet,
+                attributes:['name'],
+                through:{
+                            attributes:[]
+                        }
+            }
+        ]
     })
     
     return findbyid
 
 }
 const getRecipebyidfromApi=async(id)=>{
-    console.log(`${URL_APIBYID}${id}/information?apiKey=${API_KEY}`)
     const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY}`);
     const infoapi= await getInfoApi.data;
     let diets = infoapi.diets;

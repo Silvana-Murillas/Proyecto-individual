@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       type:DataTypes.INTEGER
     },
     steps:{
-      type:DataTypes.JSONB
+      type:DataTypes.TEXT
     }
   });
 };
