@@ -10,15 +10,12 @@ const Alphabeticfilter=()=>{
     let handleChange=(e)=>{
        
      setoption({value:e.target.value})
-     console.log(e.target.value)
      if(e.target.value==='remove'){
         dispatch(actions.getRecipes())
     }
     
     if(e.target.value==='A-Z'){
-        console.log(e.target.value)
         dispatch(actions.filterAZ())
-
     } 
     
     if(e.target.value==='Z-A'){

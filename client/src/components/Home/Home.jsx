@@ -9,7 +9,6 @@ const Home=()=>{
     const recipes=useSelector(state=>state.recipes)
 
     React.useEffect(()=>{
-        console.log("Hello my nigga")
         dispatch(actions.getRecipes())
     },[dispatch])
 

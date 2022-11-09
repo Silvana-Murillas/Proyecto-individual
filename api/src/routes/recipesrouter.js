@@ -44,7 +44,7 @@ router.get('/',async (req,res)=>{
 router.get('/:id',async (req,res)=>{
     try {
         const {id}=req.params;
-        if(id==null)throw new Error ('Id is null')
+        if(id===null)throw new Error ('Id is null')
          const recipebyId=await getRecipebyid(id)
          return res.status(201).send(recipebyId) 
     } catch (error) {

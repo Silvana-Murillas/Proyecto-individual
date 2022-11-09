@@ -20,6 +20,7 @@ import axios from 'axios';
         return axios.get(`http://localhost:3001/recipes?name=${name}`)
         .then(r=>r.data)
         .then(data=>dispatch({type:GET_ALL_RECIPES_BYNAME,payload:data}))
+        .catch(error=>alert(error.message))
     }
  }
 
