@@ -3,6 +3,9 @@ import React from "react";
 // import * as actions from "../../redux/actions"
 import SearchBar from "./SearchBar";
 import Alphabeticfilter from "./Filter_asc-des";
+import Healthscorefilter from "./Filter_health_score";
+import Dietfilter from "./Filterbydiet";
+import { NavLink } from "react-router-dom";
 
 const Nav=()=>{
     
@@ -10,7 +13,9 @@ const Nav=()=>{
         <div>
           <SearchBar></SearchBar>
           <Alphabeticfilter></Alphabeticfilter>
-
+          <Healthscorefilter></Healthscorefilter>
+          <Dietfilter></Dietfilter>
+          <NavLink to="/home/create"><button>Create Recipe</button></NavLink>
         </div>
     )
 
