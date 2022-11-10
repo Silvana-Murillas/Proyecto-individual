@@ -20,7 +20,7 @@ const RecipeDetail=(props)=>{
           <h3>{recipesdetail.healthScore}</h3>
           {recipesdetail.diets&&recipesdetail.diets.map(d=><h3>{d.hasOwnProperty('name')?d.name:d}</h3>)}
           <p>{recipesdetail.summary}</p>
-          {recipesdetail.steps&&recipesdetail.steps.map(s=><h4>{`${s.number} ${s.step}`}</h4>)}
+          {recipesdetail.steps&& Array.isArray(recipesdetail.steps)? recipesdetail.steps.map(s=><h4>{`${s.number} ${s.step}`}</h4>):<p>{recipesdetail.steps}</p>}
         </div>
     )
 
