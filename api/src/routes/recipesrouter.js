@@ -13,13 +13,13 @@ router.post('/',async(req,res)=>{
     try {
         const {name,image,summary,healthScore,steps,diets}=req.body;
 
-        if(!name||!summary||!diets){
+        if(!name||!summary){
             throw new Error('Faltan Datos por ingresar');
         }
         
         const recipe=await addRecipe(name,image,summary,healthScore,steps,diets)
 
-        return res.status(201).send(recipe);
+        return res.status(201).send('Receta creada existosamente');
         
     } catch (error) {
         return res.status(404).send(error.message);

@@ -7,13 +7,15 @@ const axios = require('axios')
 const addRecipe=async (name,image,summary,healthScore,steps,diets)=>{
     console.log(diets)
 
-    if(!name||!summary||!diets){
+    if(!name||!summary){
         throw new Error('Faltan Datos por ingresar');
     }
 
     try{          
         const recipe=await Recipe.create({name,image,summary,healthScore,steps});
-        await recipe.setDiets(diets)
+        if(diets&&diets.length){
+            await recipe.setDiets(diets)
+        }
         return recipe;
     }catch(error){
         throw new Error('Id diet invalid')
