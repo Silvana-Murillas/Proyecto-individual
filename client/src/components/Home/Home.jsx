@@ -8,9 +8,9 @@ const Home=()=>{
     const dispatch=useDispatch();
     const recipes=useSelector(state=>state.recipes)
 
-    React.useEffect(()=>{
-        dispatch(actions.getRecipes())
-    },[dispatch])
+    // React.useEffect(()=>{
+    //     dispatch(actions.getRecipes())
+    // },[dispatch])
 
     return (
         <div>
