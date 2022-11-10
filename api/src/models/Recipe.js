@@ -10,11 +10,15 @@ module.exports = (sequelize) => {
       primaryKey:true
     },
     image:{
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      validate:{
+        isUrl: true
+      }
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(25),
       allowNull: false,
+     
     },
     summary:{
       type:DataTypes.TEXT,
@@ -22,7 +26,12 @@ module.exports = (sequelize) => {
 
     },
     healthScore:{
-      type:DataTypes.INTEGER
+      type:DataTypes.INTEGER,
+      validate:{
+        min:0,
+        max:100
+      }
+
     },
     steps:{
       type:DataTypes.TEXT
