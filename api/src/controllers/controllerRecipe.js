@@ -1,11 +1,12 @@
 const e = require('express');
 const {Recipe,Diet}=require('../db');
-const {URL_API,API_KEY,URL_APIBYID}=process.env;
+const {URL_API,API_KEY,URL_APIBYID,API_KEY1}=process.env;
 const axios = require('axios')
+const { Op } = require("sequelize");
 
 
 const addRecipe=async (name,image,summary,healthScore,steps,diets)=>{
-    console.log(diets)
+ 
 
     if(!name||!summary){
         throw new Error('Faltan Datos por ingresar');
@@ -18,16 +19,19 @@ const addRecipe=async (name,image,summary,healthScore,steps,diets)=>{
         }
         return recipe;
     }catch(error){
+        console.log(error.message)
         throw new Error('Id diet invalid')
     }   
-    
+
 }
 
 const getBd=async(name)=>{
-    if(name){
+    if(name){   
         const findbyName=await Recipe.findAll({
                 where:{
-                    name:name
+                    name:{
+                        [Op.iLike]:`%${name}%`
+                    }
                 },
                 include:{
                     model:Diet,
@@ -36,7 +40,7 @@ const getBd=async(name)=>{
                         attributes:[]
                     }
                 }
-        });
+        });   
         return findbyName;        
     }
     const recipes=await Recipe.findAll({
@@ -56,7 +60,7 @@ const getBd=async(name)=>{
 
 const getApi=async(name)=>{
      
-    const getInfoApi= await axios.get(`${URL_API}?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
+    const getInfoApi= await axios.get(`${URL_API}?apiKey=${API_KEY1}&addRecipeInformation=true&number=100`);
     const infoapi= await getInfoApi.data.results;
     
 
@@ -85,7 +89,7 @@ const getApi=async(name)=>{
     })
     info.forEach(rec=>rec.diets.forEach(async (d)=>await Diet.findOrCreate({where:{name:d}})))
     if(name){
-        return info.filter(e=>e.name===name);        
+        return info.filter(e=>e.name.toLowerCase().includes(name.toLowerCase()));        
     }
 
    
@@ -97,7 +101,9 @@ const getApi=async(name)=>{
 const getRecipe=async(name)=>{
     if(name){
         const nameApi=await getApi(name);
+        
         const namebD=await getBd(name);
+       
         if(!nameApi.length&&!namebD.length)throw new Error('name no found')
         const nameApi_bD=nameApi.concat(namebD)
         return nameApi_bD;
@@ -126,7 +132,7 @@ const getRecipebyidfromDB=async(id)=>{
 
 }
 const getRecipebyidfromApi=async(id)=>{
-    const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY}`);
+    const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY1}`);
     const infoapi= await getInfoApi.data;
     let diets = infoapi.diets;
     if (infoapi.vegetarian){
