@@ -9,6 +9,7 @@ import axios from 'axios';
  export const FILTERL_H='FILTERL_H'
  export const FILTERH_L='FILTERH_L'
  export const FILTERDIETS="FILTERDIETS"
+ export const SENDPAGE='SENDPAGE'
 
  export const getRecipes=()=>{
     return function(dispatch){
@@ -23,7 +24,7 @@ import axios from 'axios';
         return axios.get(`http://localhost:3001/recipes?name=${name}`)
         .then(r=>r.data)
         .then(data=>dispatch({type:GET_ALL_RECIPES_BYNAME,payload:data}))
-        .catch(error=>alert(error.message))
+        .catch(error=> alert(error.message))
     }
  }
 
@@ -62,14 +63,18 @@ export const getDiets=()=>{
    }
 }
 
-export const postRecipe=({ name,image,summary,healthscore,steps,diets})=>{
+export const postRecipe=({ name,image,summary,healthScore,steps,diets})=>{
  return function(dispatch){
-   return axios.post('http://localhost:3001/recipes',{name,image,summary,healthscore,steps,diets:Array.from(diets)})
+   return axios.post('http://localhost:3001/recipes',{name,image,summary,healthScore,steps,diets:Array.from(diets)})
    .then(r=>r.data)
    .then(data=>data)
    .catch(error=>error.message)
  }
 
+}
+
+export const sendPage=(page)=>{
+   return {type:SENDPAGE, payload:page}
 }
 
 

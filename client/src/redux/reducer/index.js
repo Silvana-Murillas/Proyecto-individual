@@ -1,10 +1,11 @@
-import { GET_ALL_RECIPES,GET_RECIPE_DETAIL,GET_DIETS,CREATE_RECIPE,GET_ALL_RECIPES_BYNAME,FILTER_AZ,FILTER_ZA,FILTERL_H,FILTERH_L,FILTERDIETS } from "../actions";
+import { GET_ALL_RECIPES,GET_RECIPE_DETAIL,GET_DIETS,CREATE_RECIPE,GET_ALL_RECIPES_BYNAME,FILTER_AZ,FILTER_ZA,FILTERL_H,FILTERH_L,FILTERDIETS,SENDPAGE } from "../actions";
 
 const initialState={
   recipes:[],
   staticrecipes:[],
   recipesdetail:{},
-  diets:[]
+  diets:[],
+  page:1
 }
 
 const rootReducer=(state=initialState,action)=>{
@@ -85,7 +86,7 @@ const rootReducer=(state=initialState,action)=>{
         return ({...state,recipes:filterhtol});
 
     case GET_DIETS:
-      return ({...state,diets:action.payload})
+      return ({...state,diets:action.payload});
 
     case FILTERDIETS:
       console.log (action.payload)
@@ -95,15 +96,12 @@ const rootReducer=(state=initialState,action)=>{
              return d.hasOwnProperty('name')?d.name===action.payload:d===action.payload
         }).length?true:false
        
-      })})
+      })});
+
+    case SENDPAGE:
+
+      return ({...state,page:action.payload});
         
-
-  
-
-
-    
-      
-
     
     default: return {...state}  
   }
