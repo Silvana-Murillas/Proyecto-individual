@@ -11,9 +11,13 @@ const RecipeDetail=(props)=>{
         dispatch(actions.getRecipebyid(props.match.params.id))
     },[dispatch])
 
+    const handlerClick=(e)=>{
+        dispatch(actions.getRecipes())
+    }
+
     return (
         <div>
-            <NavLink to="/home">Volver</NavLink>
+        <NavLink to="/home"><button onClick={handlerClick}>Volver</button></NavLink>
           <h2>{recipesdetail.name}</h2>
           <img src={recipesdetail.image} alt={recipesdetail.name}/>
           {recipesdetail.dishTypes&&recipesdetail.dishTypes.map(d=><h3>{d}</h3>)}
