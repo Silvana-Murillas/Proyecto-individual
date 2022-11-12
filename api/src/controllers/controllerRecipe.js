@@ -132,8 +132,9 @@ const getRecipebyidfromDB=async(id)=>{
 
 }
 const getRecipebyidfromApi=async(id)=>{
-    const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY1}`);
+    const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY}`);
     const infoapi= await getInfoApi.data;
+    
     let diets = infoapi.diets;
     if (infoapi.vegetarian){
         diets.push('vegetarian');
@@ -177,4 +178,4 @@ const getRecipebyid=async(id)=>{
 
 }
 
-module.exports={addRecipe,getRecipe,getRecipebyid};
+module.exports={addRecipe,getRecipe,getRecipebyid,getBd,getApi};
