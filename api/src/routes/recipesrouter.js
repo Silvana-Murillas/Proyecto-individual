@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {addRecipe,getRecipe,getRecipebyid}=require('../controllers/controllerRecipe')
+const {addRecipe,getRecipe,getRecipebyid,getBd,getApi}=require('../controllers/controllerRecipe')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -16,12 +16,13 @@ router.post('/',async(req,res)=>{
         if(!name||!summary){
             throw new Error('Faltan Datos por ingresar');
         }
-        
-        const recipe=await addRecipe(name,image,summary,healthScore,steps,diets)
+        console.log(req.body)
+        await addRecipe(name,image,summary,healthScore,steps,diets)
 
         return res.status(201).send('Receta creada existosamente');
         
     } catch (error) {
+        console.log(error.message)
         return res.status(404).send(error.message);
         
     }
@@ -36,6 +37,27 @@ router.get('/',async (req,res)=>{
         }
         const recipes= await getRecipe();
         return res.status(201).send(recipes)        
+    } catch (error) {
+        
+        return res.status(404).send(error.message)
+    }
+})
+router.get('/get/bd',async(req,res)=>{
+    try {
+        const recipesbd=await getBd();
+        console.log(recipesbd);
+        return res.status(201).send(recipesbd) 
+    } catch (error) {
+        return res.status(404).send(error.message)
+    }
+})
+
+router.get('/get/api',async(req,res)=>{
+    try {
+        
+        const recipesapi=await getApi();
+        console.log(recipesapi);
+        return res.status(201).send(recipesapi) 
     } catch (error) {
         return res.status(404).send(error.message)
     }
@@ -52,6 +74,8 @@ router.get('/:id',async (req,res)=>{
          return res.status(404).send(error.message)
     }
 })
+
+
 
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import { GET_ALL_RECIPES,GET_RECIPE_DETAIL,GET_DIETS,CREATE_RECIPE,GET_ALL_RECIPES_BYNAME,FILTER_AZ,FILTER_ZA,FILTERL_H,FILTERH_L,FILTERDIETS,SENDPAGE } from "../actions";
+import { GET_ALL_RECIPES,GET_RECIPE_DETAIL,GET_DIETS,GET_BD,GET_API,GET_ALL_RECIPES_BYNAME,FILTER_AZ,FILTER_ZA,FILTERL_H,FILTERH_L,FILTERDIETS,SENDPAGE } from "../actions";
 
 const initialState={
   recipes:[],
@@ -101,6 +101,13 @@ const rootReducer=(state=initialState,action)=>{
     case SENDPAGE:
 
       return ({...state,page:action.payload});
+
+    case GET_BD:
+      console.log(action.payload)
+      return ({...state,recipes:action.payload})
+
+    case GET_API:
+      return ({...state,recipes:action.payload})
         
     
     default: return {...state}  

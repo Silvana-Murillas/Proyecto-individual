@@ -6,7 +6,7 @@ import Alphabeticfilter from "./Filter_asc-des";
 import Healthscorefilter from "./Filter_health_score";
 import Dietfilter from "./Filterbydiet";
 import { NavLink } from "react-router-dom";
-
+import Bd_ApiFilter from "./Filter_api_bd";
 const Nav=()=>{
     
     return (
@@ -15,6 +15,7 @@ const Nav=()=>{
           <Alphabeticfilter></Alphabeticfilter>
           <Healthscorefilter></Healthscorefilter>
           <Dietfilter></Dietfilter>
+          <Bd_ApiFilter></Bd_ApiFilter>
           <NavLink to="/home/create"><button>Create Recipe</button></NavLink>
         </div>
     )
