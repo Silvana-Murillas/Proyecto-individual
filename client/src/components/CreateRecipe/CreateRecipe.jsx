@@ -15,7 +15,7 @@ export function validate(input){
     if(!input.summary){
         error.summary="Summary is required";
     }
-    if(!/https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(input.image)){
+    if(input.image &&!/https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(input.image)){
         error.image="URL invalid, must be a url";
     }
     if (input.healthScore<0||input.healthScore>100){
@@ -34,10 +34,10 @@ const CreateRecipe=()=>{
 
     const [inputRecipe,setInputRecipe]=React.useState({
         name:'',
-        image:null,
+        image:undefined,
         summary:'',
         healthScore:0,
-        steps:'',
+        steps:undefined,
         diets:new Set(),   
 
     }
@@ -68,6 +68,15 @@ const CreateRecipe=()=>{
         e.preventDefault();
         dispatch(actions.postRecipe(inputRecipe))
         alert("New recipe added successfully")
+        setInputRecipe({
+            name:'',
+            image:null,
+            summary:'',
+            healthScore:0,
+            steps:'',
+            diets:new Set(),   
+    
+        })
     }
     
 
