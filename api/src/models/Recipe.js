@@ -9,15 +9,16 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey:true
     },
-    image:{
+    image:{ 
       type: DataTypes.STRING,
+      defaultValue: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       validate:{
-        isUrl: true
+        isUrl:true
       }
     },
     name: {
       type: DataTypes.STRING(25),
-      allowNull: false,
+      allowNull: false
      
     },
     summary:{
