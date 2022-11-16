@@ -4,30 +4,30 @@ import * as actions from "../../redux/actions"
 import RecipeCard from "../RecipeCard/RecipeCard";
 import Nav from "./Nav/Nav";
 import Pages from "./Pagination";
+import "./Home.css"
 
 const Home=()=>{
     const dispatch=useDispatch();
     const recip=useSelector(state=>state.recipes)
     const page=useSelector(state=>state.page)
-
+      
+    React.useEffect(()=>{
+    dispatch(actions.getRecipes())
+    },[dispatch])
     
     
     // debugger;
 
     // const [pag,setPage]=React.useState(1)
     //  setPage(page)
-    console.log(page)
+   
     const [recipesbypage,setrecipesbypage]=React.useState(9)
-    const handlerOnclick=(e)=>{
-        e.preventDefault();
-        dispatch(actions.getRecipes())
-     }
+    
     if(recip==="name no found"){
 
         return (
             <div>
                 <Nav></Nav>
-                <button onClick={handlerOnclick}>refrescar</button>
               <img src="248989-P42VE0-381.jpg"></img>
                 <h1>Name no found</h1>
             </div>
@@ -40,22 +40,15 @@ const Home=()=>{
      
     let recipes;
     recipes=recip.slice(beginRecipesbypage,limitRecipes);
-    
-    // React.useEffect(()=>{
-    //     dispatch(actions.getRecipes())
-    // },[dispatch])
-
-   
-    
-      
+     
      
     return (
-        <div>
+        <div >
             <Nav></Nav>
-           <Pages></Pages>
-            <button onClick={handlerOnclick}>refrescar</button>
+           <Pages></Pages>  
+             <div className="cards">
           {recipes&&recipes.map(recipe=><RecipeCard name={recipe.name} image={recipe.image}  diets={recipe.diets} key={recipe.id} id={recipe.id} healthScore={recipe.healthScore}></RecipeCard>)}
-
+          </div>
         </div>
     )
 

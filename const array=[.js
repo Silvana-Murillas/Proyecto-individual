@@ -1,0 +1,113 @@
+const array=[
+	{
+		"id": 716426,
+		"name": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+		"image": "https://spoonacular.com/recipeImages/716426-312x231.jpg",
+		"dishTypes": [
+			"side dish"
+		],
+		"summary": "Cauliflower, Brown Rice, and Vegetable Fried Rice might be a good recipe to expand your side dish recipe box. Watching your figure? This gluten free, dairy free, lacto ovo vegetarian, and vegan recipe has <b>192 calories</b>, <b>7g of protein</b>, and <b>6g of fat</b> per serving. For <b>$1.12 per serving</b>, this recipe <b>covers 19%</b> of your daily requirements of vitamins and minerals. This recipe serves 8. This recipe from fullbellysisters.blogspot.com has 3689 fans. This recipe is typical of Chinese cuisine. From preparation to the plate, this recipe takes about <b>30 minutes</b>. Head to the store and pick up peas, broccoli, salt, and a few other things to make it today. Overall, this recipe earns an <b>awesome spoonacular score of 100%</b>. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/vegetable-fried-brown-rice-36199\">Vegetable Fried Brown Rice</a>, <a href=\"https://spoonacular.com/recipes/vegetable-fried-cauliflower-rice-933261\">Vegetable Fried Cauliflower Rice</a>, and <a href=\"https://spoonacular.com/recipes/easy-vegetable-fried-brown-rice-with-egg-802042\">Easy Vegetable Fried Brown Rice with Egg</a>.",
+		"healthScore": 76,
+		"diets": [
+			"gluten free",
+			"dairy free",
+			"lacto ovo vegetarian",
+			"vegan",
+			"vegetarian"
+		],
+		"steps": [
+			{
+				"number": 1,
+				"step": "Remove the cauliflower's tough stem and reserve for another use. Using a food processor, pulse cauliflower florets until they resemble rice or couscous. You should end up with around four cups of \"cauliflower rice.\""
+			},
+			{
+				"number": 2,
+				"step": "Heat 1T butter and 1T oil in a large skillet over medium heat."
+			},
+			{
+				"number": 3,
+				"step": "Add garlic and the white and light green pieces of scallion. Sauté about a minute."
+			},
+			{
+				"number": 4,
+				"step": "Add the cauliflower to the pan. Stir to coat with oil, then spread out in pan and let sit; you want it cook a bit and to caramelize (get a bit brown), which will bring out the sweetness. After a couple of minutes, stir and spread out again."
+			},
+			{
+				"number": 5,
+				"step": "Add cold rice (it separates easily, so it won't clump up during cooking), plus the additional grapeseed and coconut oil or butter. Raise heat to medium-high. Toss everything together and, again, spread the mixture out over the whole pan and press a bit into the bottom."
+			},
+			{
+				"number": 6,
+				"step": "Let it sit for about two minutes—so the rice can get toasted and a little crispy."
+			},
+			{
+				"number": 7,
+				"step": "Add the peas and broccoli and stir again."
+			},
+			{
+				"number": 8,
+				"step": "Drizzle soy sauce and toasted sesame oil over rice.Cook for another minute or so and turn off heat."
+			},
+			{
+				"number": 9,
+				"step": "Add chopped scallion tops and toss.I like to toast some sesame seeds in a dry pan; I sprinkle these and some more raw, chopped scallion over the top of the rice for added flavor and crunch.Season to taste with salt and, if you'd like, more soy sauce. Keep in mind that if you're serving this with something salty and saucy (ie. teriyaki chicken) you may want to hold off on adding too much salt to the fried rice."
+			}
+		]
+	},
+	{
+		"id": 715594,
+		"name": "Homemade Garlic and Basil French Fries",
+		"image": "https://spoonacular.com/recipeImages/715594-312x231.jpg",
+		"dishTypes": [
+			"lunch",
+			"main course",
+			"main dish",
+			"dinner"
+		],
+		"summary": "The recipe Homemade Garlic and Basil French Fries is ready <b>in roughly 45 minutes</b> and is definitely a super <b>vegan</b> option for lovers of American food. One serving contains <b>596 calories</b>, <b>18g of protein</b>, and <b>15g of fat</b>. For <b>83 cents per serving</b>, you get a side dish that serves 2. Several people made this recipe, and 1669 would say it hit the spot. If you have garlic salt, flour, garlic powder, and a few other ingredients on hand, you can make it. All things considered, we decided this recipe <b>deserves a spoonacular score of 100%</b>. This score is outstanding. Try <a href=\"https://spoonacular.com/recipes/homemade-french-fries-with-fresh-garlic-and-dill-494220\">Homemade French Fries with Fresh Garlic and Dill</a>, <a href=\"https://spoonacular.com/recipes/roasted-garlic-french-fries-519898\">Roasted Garlic French Fries</a>, and <a href=\"https://spoonacular.com/recipes/sweet-potato-fries-with-basil-salt-and-garlic-mayonnaise-120735\">Sweet Potato Fries With Basil Salt and Garlic Mayonnaise</a> for similar recipes.",
+		"healthScore": 77,
+		"diets": [
+			"dairy free",
+			"lacto ovo vegetarian",
+			"vegan",
+			"vegetarian"
+		],
+		"steps": 0
+	},
+	{
+		"id": 715497,
+		"name": "Berry Banana Breakfast Smoothie",
+		"image": "https://spoonacular.com/recipeImages/715497-312x231.jpg",
+		"dishTypes": [
+			"morning meal",
+			"brunch",
+			"breakfast"
+		],
+		"summary": "If you have around <b>5 minutes</b> to spend in the kitchen, Berry Banana Breakfast Smoothie might be a tremendous <b>lacto ovo vegetarian</b> recipe to try. This recipe makes 1 servings with <b>501 calories</b>, <b>21g of protein</b>, and <b>11g of fat</b> each. For <b>$2.19 per serving</b>, this recipe <b>covers 32%</b> of your daily requirements of vitamins and minerals. 688 people found this recipe to be tasty and satisfying. It is brought to you by Pink When. Head to the store and pick up graham crackers, soy milk, banana, and a few other things to make it today. It works well as a morn meal. Overall, this recipe earns a <b>super spoonacular score of 100%</b>. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/berry-banana-breakfast-smoothie-249239\">Berry Banana Breakfast Smoothie</a>, <a href=\"https://spoonacular.com/recipes/berry-and-banana-oat-breakfast-smoothie-626817\">Berry and Bananan Oat Breakfast Smoothie</a>, and <a href=\"https://spoonacular.com/recipes/berry-breakfast-smoothie-774875\">Berry Breakfast Smoothie</a>.",
+		"healthScore": 63,
+		"diets": [
+			"lacto ovo vegetarian",
+			"vegetarian"
+		],
+		"steps": [
+			{
+				"number": 1,
+				"step": "Take some yogurt in your favorite flavor and add 1 container to your blender."
+			},
+			{
+				"number": 2,
+				"step": "Add in the berries, banana, and soy milk and blend. Top your glass with a few graham cracker crumbs and serve."
+			}
+		]
+	}]
+
+    let recipe=array.sort(function(a, b){
+        if (a.name > b.name){
+            return 1
+        }
+        if (a.name < b.name){
+            return -1
+        }
+        return 0;
+    })
+    recipe

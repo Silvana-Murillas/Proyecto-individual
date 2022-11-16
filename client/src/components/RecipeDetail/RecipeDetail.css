@@ -1,0 +1,131 @@
+.container{
+    display:flex;
+    flex-direction: row-reverse;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
+    font-size: 15px;
+    color:black;
+    background:#b5c99a ;
+    height: fit-content;
+   
+   
+    /* #6a994e */    
+
+}
+
+.navlink {
+    margin-top: 120px;
+    margin-left: 20px;
+    margin-right: 20px;
+   
+  }
+
+.navlink button{
+    font-size: xx-large;
+  color:rgb(51, 181, 51);
+  backdrop-filter: blur(6px) saturate(143%);
+  -webkit-backdrop-filter: blur(6px) saturate(143%);
+  background-color: rgba(253, 255, 253, 0.57);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding-left: 2px;
+     
+   
+}
+.navlink a {
+    margin-left: 0px;
+    background: transparent;
+    align-items: center;
+    /* margin-left: 750px;
+    margin-top: 30px;
+    margin-bottom: 50px; */
+}
+
+
+.info{
+    
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(253, 253, 253, 0.76);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    height: fit-content;
+   
+    
+}
+
+
+.container img {
+    margin-top: 20px;
+    width:530px;
+    height:379px;
+    border-radius: 14px;
+    background: #b5c99a;
+    box-shadow:  30px 30px 32px #94a57e,
+             -30px -30px 32px #d6edb6;
+   
+
+    
+}
+.types{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-color: rgb(228, 181, 63);
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 2px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.dish{
+    display: flex;
+    flex-direction: column;
+}
+.dish p{
+    margin: 5px; 
+    font-size: 15px;
+}
+.diet{
+    display: flex;
+    flex-direction: column;
+}
+.diet p {
+    margin: 5px; 
+    font-size: 15px;
+}
+.summary{
+    border-color: rgb(228, 181, 63);
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 2px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+}
+.summary p {
+    margin: 5px; 
+    font-size: 15px;
+}
+.step{
+    border-color: rgb(228, 181, 63);
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 2px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.step p{
+    margin-bottom: 8px; 
+    font-size: 15px;
+
+}
+.info h2{
+    margin: 5px;
+    font-size: 18px;
+}
+
+.info h1{
+    margin: 5px 5px 8px 5px;
+    color: rgb(241, 142, 55);
+}

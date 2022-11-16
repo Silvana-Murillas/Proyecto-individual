@@ -1,6 +1,7 @@
 import React from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import * as actions from "../../../redux/actions/index"
+import "./SearchBar.css"
 
 
 const SearchBar=()=>{
@@ -18,11 +19,11 @@ const SearchBar=()=>{
     }
 
     return (
-        <div>
-        <form onSubmit={handleSubmit}>
+        <div >
+        <form className="search" onSubmit={handleSubmit}>
 
-            <input type='text' name="name" onChange={handleChange} value={inputName}></input>
-            <button type="submit">Buscar</button>
+            <input placeholder="Buscar por nombre" type='text' name="name" onChange={handleChange} value={inputName}></input>
+            <button type="submit">🔍</button>
         </form>
         </div>
     )

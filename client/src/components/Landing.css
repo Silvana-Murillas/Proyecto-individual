@@ -1,0 +1,73 @@
+
+
+.background {
+    background-image:url(background.gif);
+    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    height:40.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;   
+}
+
+@media only screen and (min-width: 1440px){
+  .background{
+    background-image:url(background.gif);
+    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    height:60rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+  }
+
+  .background a {
+    text-decoration: none;
+    margin-left: 1000px;
+    margin-top: 200px;
+    background: #e3b232;
+    color: #1c4520;
+    font-size:larger;
+    border-radius: 5px;
+    border-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    width:100px;
+    height:30px;
+
+}
+
+
+ .background a:hover{
+  color: #e3b232;
+  background: #c75a39;
+}
+
+}
+
+
+
+a {
+    text-decoration: none;
+    margin-left: 700px;
+    margin-top: 200px;
+    background: #e3b232;
+    color: #1c4520;
+    font-size:larger;
+    border-radius: 5px;
+    border-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    width:100px;
+    height:30px;
+
+}
+
+
+a:hover{
+  color: #e3b232;
+  background: #c75a39;
+}
+

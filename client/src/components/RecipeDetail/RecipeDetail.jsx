@@ -1,40 +1,67 @@
 import React from "react";
-import {useDispatch,useSelector} from 'react-redux'
-import * as actions from "../../redux/actions/index"
-import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import * as actions from "../../redux/actions/index";
+import { NavLink, useHistory } from "react-router-dom";
+import "./RecipeDetail.css";
 
-const RecipeDetail=(props)=>{
-    const dispatch=useDispatch();
-    const recipesdetail=useSelector(state=>state.recipesdetail)
-    let history = useHistory();
+const RecipeDetail = (props) => {
+  const dispatch = useDispatch();
+  const recipesdetail = useSelector((state) => state.recipesdetail);
+  let history = useHistory();
 
-    React.useEffect(()=>{
-        dispatch(actions.getRecipebyid(props.match.params.id))
-    },[dispatch])
+  React.useEffect(() => {
+    dispatch(actions.getRecipebyid(props.match.params.id));
+  }, [dispatch]);
 
-    const handlerClick=(e)=>{
-        history.push("/home");
-    }
+  const handlerClick = (e) => {
+    history.push("/home");
+  };
 
-    return (
-        <div>
-        <NavLink to="/home"><button onClick={handlerClick}>Volver</button></NavLink>
-          <h1>Name recipe:</h1>
-          <h2>{recipesdetail.name}</h2>
-          <img src={recipesdetail.image} alt={recipesdetail.name}/>
-          <h2>Dish Type</h2>
-          {recipesdetail.dishTypes&&recipesdetail.dishTypes.map(d=><h3>{d}</h3>)}
-          <h2>Health Score</h2>
-          <h3>{recipesdetail.healthScore}</h3>
-          <h2>Diet Types</h2>
-          {recipesdetail.diets&&recipesdetail.diets.map(d=><h3>{d.hasOwnProperty('name')?d.name:d}</h3>)}
-          <h2>Summary</h2>
-         <p>{recipesdetail.summary&&recipesdetail.summary.replace(/(<([^>]+)>)/ig,'')}</p>
-         <h2>Steps</h2>
-          {recipesdetail.steps&& Array.isArray(recipesdetail.steps)? recipesdetail.steps.map(s=><h4>{`${s.number} ${s.step}`}</h4>):<p>{recipesdetail.steps}</p>}
+  return (
+    <div className="container">
+      <div className="navlink">
+        <NavLink to="/home">
+          <button onClick={handlerClick}>◀</button>
+        </NavLink>
+        <img src={recipesdetail.image} alt={recipesdetail.name} />
+      </div>
+      <div className="info">
+        <h1>{recipesdetail.name}</h1>
+        <h2>Health Score</h2>
+        <p>{recipesdetail.healthScore}</p>
+       <div className="types">
+       <div className="dish">
+        <h2>Dish Type</h2>
+          {recipesdetail.dishTypes &&
+          recipesdetail.dishTypes.map((d) => 
+          <p>{d}</p>)}
         </div>
-    )
-
-}
+        <div className="diet">
+        <h2>Diet Types</h2>
+          {recipesdetail.diets &&
+          recipesdetail.diets.map((d) => (
+          <p>{d.hasOwnProperty("name") ? d.name : d}</p>
+          ))}
+        </div>
+        </div>
+        <div className="summary">
+          <h2>Summary</h2>
+          <p>
+          {recipesdetail.summary &&
+            recipesdetail.summary.replace(/(<([^>]+)>)/gi, "")}
+          </p>
+        </div>
+        <div className="step">
+          <h2>Steps</h2>
+          {recipesdetail.steps && Array.isArray(recipesdetail.steps) ? (
+          recipesdetail.steps.map((s) => <p>{`${s.number} ${s.step}`}</p>)
+          ) : (
+          <p>{recipesdetail.steps}</p>
+           )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default RecipeDetail;

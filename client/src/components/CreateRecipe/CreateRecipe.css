@@ -1,0 +1,131 @@
+input[type="range"] {
+  -webkit-appearance: none;  /*Needed to reset default slider styles */
+  width: 100%;
+  height: 15px;
+  background-color: rgb(51, 181, 51) ;
+  border: 1px solid darken(green, 4%);
+  border-radius: 10px;
+  margin: auto;
+  transition: all 0.3s ease
+
+}
+   
+ /*Here to do something to the value while moving the slider */
+
+  
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none ;
+  width: 20px;
+  height: 20px;
+  background: darkgreen;
+  border-radius: 30px;
+  box-shadow: 0px 0px 3px darken(darkgreen, 15%);
+  transition: all 0.5s ease
+}
+
+.form p{
+   color: red;
+   font-size: small;
+   padding-left: 100px;
+}
+  
+.form {
+  background-image: url(top-view-plate-healthy-food.jpg);
+  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-right: 50px;
+  padding-left: 500px;
+  padding-top: 25px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
+  color: #1c4520;
+  height: max-content;
+  
+}
+
+.form a {
+  margin-left: 150px;
+  background: transparent;
+}
+.form label{
+  font-weight:600
+}
+#label{
+  padding-bottom: 10px;
+  margin-left: 120px;
+}
+#labelhs{
+  font-weight: bold;
+  margin-left: 120px;
+}
+
+.form button{
+  font-size: xx-large;
+  color:rgb(51, 181, 51);
+  backdrop-filter: blur(14px) saturate(167%);
+    -webkit-backdrop-filter: blur(14px) saturate(167%);
+    background-color: rgba(28, 69, 32, 0.14);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding-right: 10px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  font-size: 18px;
+}
+.form h2 {
+    font-size: 30px; 
+    margin-left: 160px;
+}
+.form h3{
+  margin-left: 160px;
+}
+.form input {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border-color: transparent;
+  width: 300px;
+ 
+}
+
+.form textarea {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-color: transparent;
+  margin-left: 120px;
+  width:350px ;
+  height: 100px;
+}
+
+.check {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  width: 750px;
+  padding-left: 150px;
+  align-items: center;
+
+}
+.check input {
+  width:fit-content;
+}
+
+#sub{
+    border-radius: 5px;
+    background-color: green;
+    color: rgb(4, 57, 4);
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: max-content;
+}
+
+#sub:hover{
+  background:rgb(107, 203, 107);
+  color: black;
+}

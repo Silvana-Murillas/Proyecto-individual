@@ -7,18 +7,15 @@ import RecipeDetail from './components/RecipeDetail/RecipeDetail';
 import { NavLink } from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux'
 import * as actions from "./redux/actions/index"
+import Landing from './components/Landing_page';
 
 function App() {
-  const dispatch=useDispatch();
+
+  // onClick={(e)=>{dispatch(actions.getRecipes())}}
   return (
     <div className="App">
       <Route exact path='/'>
-        <div>
-        <h1>hola</h1>
-          <NavLink to='/home'>
-            <button type="submit" onClick={(e)=>{dispatch(actions.getRecipes())}}>Let's start</button>
-          </NavLink>
-        </div>
+        <Landing></Landing>
       </Route>
       
       <Route exact path="/home" component={Home}/>

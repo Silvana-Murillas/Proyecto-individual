@@ -2,6 +2,7 @@ import React from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import * as actions from "../../redux/actions/index"
 import { NavLink } from "react-router-dom";
+import "./CreateRecipe.css"
 
 export function validate(input){
     console.log(input)
@@ -82,24 +83,30 @@ const CreateRecipe=()=>{
 
 
     return(
-        <div>
+        <div className="form">
 
 <NavLink to='/home'>
-            <button type="submit" onClick={(e)=>{dispatch(actions.getRecipes())}}>Volver</button>
+            <button type="submit" onClick={(e)=>{dispatch(actions.getRecipes())}}>◀</button>
           </NavLink>
             <form onSubmit={handlerOnSubmit}>
-                <label> Recipe Image: <input type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
+                <h2>Create Recipe</h2>
+                <label> Recipe Image (URL): <input type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
                 {errors.image&&<p>{errors.image}</p>}
-                <label> Recipe Name: <input type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
+                <label> Recipe Name : <input type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
                 {errors.name&&<p>{errors.name}</p>}
-                <label> Summary:<textarea type="text" size="255" name="summary" value={inputRecipe.summary} onChange={handlerOnchange}></textarea></label>
+                <label id="label"> Summary:</label>
+                <textarea type="text" size="255" name="summary" value={inputRecipe.summary} onChange={handlerOnchange}></textarea>
                 {errors.summary&&<p>{errors.summary}</p>}
-                <label> Health Score {inputRecipe.healthScore}:<input type="range" max="100" min="0" name= "healthScore" value={inputRecipe.healthScore} onChange={handlerOnchange}></input></label>
+                <label id="label">HealthScore:</label>
+                <label id="labelhs">  {inputRecipe.healthScore} <input type="range" max="100" min="0" name= "healthScore" value={inputRecipe.healthScore} onChange={handlerOnchange}></input></label>
                 {errors.healthScore&&<p>{errors.healthScore}</p>}
-                <label> Steps:<textarea type="text" name="steps" value={inputRecipe.steps} onChange={handlerOnchange}></textarea></label>
+                <label id="label"> Steps:</label>
+                <textarea type="text" name="steps" value={inputRecipe.steps} onChange={handlerOnchange}></textarea>
                 <h3>Types of diets</h3>
-                {loadedDiets&&loadedDiets.map((d)=><label>{d.name}<input type="checkbox" value={d.id} name="diets" onClick={(e)=>handlerOnchange(e)} ></input></label>)}
-                <input type="submit" disabled={!inputRecipe.name||!inputRecipe.summary||errors.name||errors.summary||errors.healthScore||errors.image}></input>
+                <div className="check">
+                {loadedDiets&&loadedDiets.map((d)=><label><input type="checkbox" value={d.id} name="diets" onClick={(e)=>handlerOnchange(e)} ></input>{d.name}</label>)}
+                </div>
+                <input value="Create" id="sub" type="submit" disabled={!inputRecipe.name||!inputRecipe.summary||errors.name||errors.summary||errors.healthScore||errors.image}></input>
             </form>
 
         </div>

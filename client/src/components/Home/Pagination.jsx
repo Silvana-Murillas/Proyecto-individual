@@ -1,6 +1,7 @@
 import React from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import * as actions from "../../redux/actions"
+import "./Pagination.css"
 
 
 const Pages=()=>{
@@ -20,8 +21,8 @@ const Pages=()=>{
     }
 
     return (
-        <div>
-          {pages&&pages.map(p=><button onClick={(e)=>handlerClick(e,p)}>{p}</button>)}
+        <div className="pag">
+          {pages&&pages.map(p=><button  onClick={(e)=>handlerClick(e,p)}>{p}</button>)}
         </div>
     )
 

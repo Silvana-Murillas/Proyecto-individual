@@ -132,7 +132,7 @@ const getRecipebyidfromDB=async(id)=>{
 
 }
 const getRecipebyidfromApi=async(id)=>{
-    const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY}`);
+    const getInfoApi= await axios.get(`${URL_APIBYID}${id}/information?apiKey=${API_KEY1}`);
     const infoapi= await getInfoApi.data;
     
     let diets = infoapi.diets;
