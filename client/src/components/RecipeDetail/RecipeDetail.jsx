@@ -34,13 +34,13 @@ const RecipeDetail = (props) => {
         <h2>Dish Type</h2>
           {recipesdetail.dishTypes &&
           recipesdetail.dishTypes.map((d) => 
-          <p>{d}</p>)}
+          <p key={d}>{d}</p>)}
         </div>
         <div className="diet">
         <h2>Diet Types</h2>
           {recipesdetail.diets &&
           recipesdetail.diets.map((d) => (
-          <p>{d.hasOwnProperty("name") ? d.name : d}</p>
+          <p key={d}>{d.hasOwnProperty("name") ? d.name : d}</p>
           ))}
         </div>
         </div>
@@ -54,7 +54,7 @@ const RecipeDetail = (props) => {
         <div className="step">
           <h2>Steps</h2>
           {recipesdetail.steps && Array.isArray(recipesdetail.steps) ? (
-          recipesdetail.steps.map((s) => <p>{`${s.number} ${s.step}`}</p>)
+          recipesdetail.steps.map((s) => <p key={s.numner}>{`${s.number} ${s.step}`}</p>)
           ) : (
           <p>{recipesdetail.steps}</p>
            )}

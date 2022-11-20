@@ -11,7 +11,7 @@ const RecipeCard=({name,image,diets,id,healthScore})=>{
             <h2>Health Score:</h2>
             <p>{healthScore}</p>
             <h2>Types of Diets:</h2>
-            {diets.map(diet=><p>{diet.hasOwnProperty('name')?diet.name:diet}</p>)}
+            {diets.map(diet=><p key={diet}>{diet.hasOwnProperty('name')?diet.name:diet}</p>)}
         </div>
     )
 
