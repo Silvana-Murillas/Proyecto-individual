@@ -16,27 +16,24 @@ const Home=()=>{
     },[dispatch])
     
     
-    // debugger;
-
-    // const [pag,setPage]=React.useState(1)
-    //  setPage(page)
-   
-    const [recipesbypage,setrecipesbypage]=React.useState(9)
     
-    if(recip==="name no found"){
+   
+    // const [recipesbypage,setrecipesbypage]=React.useState(9)
+    
+    if(recip.hasOwnProperty('error')){
 
         return (
             <div>
                 <Nav></Nav>
-              <img src="248989-P42VE0-381.jpg"></img>
-                <h1>Name no found</h1>
+              <img src="404.gif"></img>
+             
             </div>
         )
     }
 
-    const limitRecipes=page * recipesbypage;
+    const limitRecipes=page * 9;
 
-    const beginRecipesbypage=limitRecipes - recipesbypage;
+    const beginRecipesbypage=limitRecipes - 9;
      
     let recipes;
     recipes=recip.slice(beginRecipesbypage,limitRecipes);
@@ -45,7 +42,7 @@ const Home=()=>{
     return (
         <div >
             <Nav></Nav>
-           <Pages></Pages>  
+           <Pages page={page}></Pages>  
              <div className="cards">
           {recipes&&recipes.map(recipe=><RecipeCard name={recipe.name} image={recipe.image}  diets={recipe.diets} key={recipe.id} id={recipe.id} healthScore={recipe.healthScore}></RecipeCard>)}
           </div>
