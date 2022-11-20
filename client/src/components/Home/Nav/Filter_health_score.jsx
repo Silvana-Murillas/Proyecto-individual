@@ -11,14 +11,17 @@ const Healthscorefilter=()=>{
         e.preventDefault();
         if(e.target.value==='remove'){
             dispatch(actions.getRecipes())
+            
         }
     
         if(e.target.value==="Lowest to Highest"){
             dispatch(actions.filterLtoH())
+            dispatch(actions.typefilter(e.target.value))
         } 
         
         if(e.target.value==="Highest to Lowest"){
             dispatch(actions.filterHtoL())
+            dispatch(actions.typefilter(e.target.value))
         }
     }
      
@@ -28,7 +31,7 @@ const Healthscorefilter=()=>{
         <div>
             <form>
                 <select onChange={handleChange}>
-                    <option disabled selected>...HealthScore</option>
+                    <option disabled selected>Order by HealthScore</option>
                     <option value="remove">Remove filter</option>
                     <option value="Lowest to Highest">Lowest to Highest</option>
                     <option value="Highest to Lowest">Highest to Lowest</option>
