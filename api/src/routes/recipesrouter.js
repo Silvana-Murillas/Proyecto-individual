@@ -12,17 +12,16 @@ const router = Router();
 router.post('/',async(req,res)=>{
     try {
         const {name,image,summary,healthScore,steps,diets}=req.body;
-
+        
         if(!name||!summary){
             throw new Error('Faltan Datos por ingresar');
         }
-        console.log(req.body)
+        
         await addRecipe(name,image,summary,healthScore,steps,diets)
 
         return res.status(201).send('Receta creada existosamente');
         
     } catch (error) {
-        console.log(error.message)
         return res.status(404).send(error.message);
         
     }
@@ -30,38 +29,29 @@ router.post('/',async(req,res)=>{
 
 router.get('/',async (req,res)=>{
     try {
-        const {name}=req.query;
+        const {name,source}=req.query;
         if(name){
             const searchRecipe= await getRecipe(name)
+            
             return res.status(201).send(searchRecipe)
         }
+        if(source==="Created Recipes"){
+            const recipesbd=await getBd(); 
+            return res.status(201).send(recipesbd)      
+        }
+        if(source==="Api Recipes"){
+            const recipesapi=await getApi();
+            
+            return res.status(201).send(recipesapi) 
+        }
         const recipes= await getRecipe();
-        return res.status(201).send(recipes)        
-    } catch (error) {
         
-        return res.status(404).send(error.message)
-    }
-})
-router.get('/get/bd',async(req,res)=>{
-    try {
-        const recipesbd=await getBd();
-        console.log(recipesbd);
-        return res.status(201).send(recipesbd) 
-    } catch (error) {
-        return res.status(404).send(error.message)
+        return res.status(201).send(recipes)        
+    } catch (error) {        
+        return res.status(404).send({error:error.message})
     }
 })
 
-router.get('/get/api',async(req,res)=>{
-    try {
-        
-        const recipesapi=await getApi();
-        console.log(recipesapi);
-        return res.status(201).send(recipesapi) 
-    } catch (error) {
-        return res.status(404).send(error.message)
-    }
-})
 
 router.get('/:id',async (req,res)=>{
     try {
