@@ -15,7 +15,7 @@ const SearchBar=()=>{
     let handleSubmit=(e)=>{
         e.preventDefault();
         console.log(inputName)
-        dispatch(actions.getRecipesbyName(inputName))
+        dispatch(actions.getRecipesbyquery(inputName))
     }
 
     return (
