@@ -1,11 +1,12 @@
-import { GET_ALL_RECIPES,GET_RECIPE_DETAIL,GET_DIETS,GET_BD,GET_API,GET_ALL_RECIPES_BYNAME,FILTER_AZ,FILTER_ZA,FILTERL_H,FILTERH_L,FILTERDIETS,SENDPAGE } from "../actions";
+import { GET_ALL_RECIPES,GET_RECIPE_DETAIL,GET_DIETS,GET_BD,GET_API,GET_ALL_RECIPES_BYQUERY,FILTER_AZ,FILTER_ZA,FILTERL_H,FILTERH_L,FILTERDIETS,SENDPAGE,TYPE_FILTER } from "../actions";
 
 const initialState={
   recipes:[],
   staticrecipes:[],
   recipesdetail:{},
   diets:[],
-  page:1
+  page:1,
+  order:""
 }
 
 const rootReducer=(state=initialState,action)=>{
@@ -15,7 +16,8 @@ const rootReducer=(state=initialState,action)=>{
         
         return({...state,recipes:action.payload,staticrecipes:action.payload});
 
-    case GET_ALL_RECIPES_BYNAME:
+    case GET_ALL_RECIPES_BYQUERY:
+      console.log(action.payload)
         return ({...state,recipes:action.payload});
     
     case FILTER_AZ:
@@ -34,6 +36,7 @@ const rootReducer=(state=initialState,action)=>{
       return ({...state,recipes:Array.from(result, x => x)});
       
     case FILTER_ZA:
+      console.log('Im the filteer')
 
       let filter=[...state.recipes]
 
@@ -102,12 +105,16 @@ const rootReducer=(state=initialState,action)=>{
 
       return ({...state,page:action.payload});
 
-    case GET_BD:
-      console.log(action.payload)
-      return ({...state,recipes:action.payload})
+    // case GET_BD:
+    //   console.log(action.payload)
+    //   return ({...state,recipes:action.payload})
 
-    case GET_API:
-      return ({...state,recipes:action.payload})
+    // case GET_API:
+    //   return ({...state,recipes:action.payload})
+
+    case TYPE_FILTER:
+      console.log(action.payload)
+      return ({...state, order:action.payload})
         
     
     default: return {...state}  
