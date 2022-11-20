@@ -10,6 +10,9 @@ export function validate(input){
     if(!input.name){
        error.name='Name is required';
     }
+    if(typeof input.name=== "number"){
+        error.name="Name can't be a number"
+    }
     if (input.name.length>25){
         error.name="Name must have maximum 25 characteres";
     }
@@ -68,7 +71,7 @@ const CreateRecipe=()=>{
     const handlerOnSubmit=(e)=>{
         e.preventDefault();
         dispatch(actions.postRecipe(inputRecipe))
-        alert("New recipe added successfully")
+        //alert("New recipe added successfully")
         setInputRecipe({
             name:'',
             image:null,
@@ -90,21 +93,21 @@ const CreateRecipe=()=>{
           </NavLink>
             <form onSubmit={handlerOnSubmit}>
                 <h2>Create Recipe</h2>
-                <label> Recipe Image (URL): <input type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
+                <label className="lab" id="imgl"> Recipe Image (URL): <input className={errors.image&&"error"} id="inputimg" type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
                 {errors.image&&<p>{errors.image}</p>}
-                <label> Recipe Name : <input type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
+                <label className="lab"> Recipe Name : <input className={errors.name&&"error"} id="inputname" type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
                 {errors.name&&<p>{errors.name}</p>}
                 <label id="label"> Summary:</label>
-                <textarea type="text" size="255" name="summary" value={inputRecipe.summary} onChange={handlerOnchange}></textarea>
+                <textarea className={errors.summary&&"error"} type="text" size="255" name="summary" value={inputRecipe.summary} onChange={handlerOnchange}></textarea>
                 {errors.summary&&<p>{errors.summary}</p>}
                 <label id="label">HealthScore:</label>
                 <label id="labelhs">  {inputRecipe.healthScore} <input type="range" max="100" min="0" name= "healthScore" value={inputRecipe.healthScore} onChange={handlerOnchange}></input></label>
                 {errors.healthScore&&<p>{errors.healthScore}</p>}
                 <label id="label"> Steps:</label>
-                <textarea type="text" name="steps" value={inputRecipe.steps} onChange={handlerOnchange}></textarea>
+                <textarea  type="text" name="steps" value={inputRecipe.steps} onChange={handlerOnchange}></textarea>
                 <h3>Types of diets</h3>
                 <div className="check">
-                {loadedDiets&&loadedDiets.map((d)=><label><input type="checkbox" value={d.id} name="diets" onClick={(e)=>handlerOnchange(e)} ></input>{d.name}</label>)}
+                {loadedDiets&&loadedDiets.map((d)=><label><input key={d.id} type="checkbox" value={d.id} name="diets" onClick={(e)=>handlerOnchange(e)} ></input>{d.name}</label>)}
                 </div>
                 <input value="Create" id="sub" type="submit" disabled={!inputRecipe.name||!inputRecipe.summary||errors.name||errors.summary||errors.healthScore||errors.image}></input>
             </form>
