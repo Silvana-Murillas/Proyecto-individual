@@ -10,11 +10,13 @@ import Bd_ApiFilter from "./Filter_api_bd";
 import {useDispatch} from 'react-redux'
 import * as actions from "../../../redux/actions/index"
 import "./Nav.css"
+
+
 const Nav=()=>{
   const dispatch=useDispatch();
   const handlerOnclick=(e)=>{
     e.preventDefault();
-    dispatch(actions.getRecipes())
+    window.location.reload()
  }
     
     return (
