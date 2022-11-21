@@ -5,12 +5,13 @@ import { NavLink } from "react-router-dom";
 import "./CreateRecipe.css"
 
 export function validate(input){
+    let name=parseInt(input.name)
     console.log(input)
     let error={};
     if(!input.name){
        error.name='Name is required';
     }
-    if(typeof input.name=== "number"){
+    if(!isNaN(name)){
         error.name="Name can't be a number"
     }
     if (input.name.length>25){
@@ -65,13 +66,14 @@ const CreateRecipe=()=>{
         } else {
             seterrors(validate({...inputRecipe,[e.target.name]:e.target.value}))
             setInputRecipe({...inputRecipe,[e.target.name]:e.target.value})
+            console.log(typeof inputRecipe.name)
         }
     }
 
     const handlerOnSubmit=(e)=>{
         e.preventDefault();
         dispatch(actions.postRecipe(inputRecipe))
-        //alert("New recipe added successfully")
+        
         setInputRecipe({
             name:'',
             image:null,
@@ -93,9 +95,9 @@ const CreateRecipe=()=>{
           </NavLink>
             <form onSubmit={handlerOnSubmit}>
                 <h2>Create Recipe</h2>
-                <label className="lab" id="imgl"> Recipe Image (URL): <input className={errors.image&&"error"} id="inputimg" type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
+                <label className="lab" id="imgl"> Recipe Image (URL): <input  id={errors.image?"errorsimg":"inputimg"} type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
                 {errors.image&&<p>{errors.image}</p>}
-                <label className="lab"> Recipe Name : <input className={errors.name&&"error"} id="inputname" type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
+                <label className="lab"> Recipe Name : <input  id={errors.image?"errorsname":"inputname"} type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
                 {errors.name&&<p>{errors.name}</p>}
                 <label id="label"> Summary:</label>
                 <textarea className={errors.summary&&"error"} type="text" size="255" name="summary" value={inputRecipe.summary} onChange={handlerOnchange}></textarea>
@@ -109,7 +111,7 @@ const CreateRecipe=()=>{
                 <div className="check">
                 {loadedDiets&&loadedDiets.map((d)=><label><input key={d.id} type="checkbox" value={d.id} name="diets" onClick={(e)=>handlerOnchange(e)} ></input>{d.name}</label>)}
                 </div>
-                <input value="Create" id="sub" type="submit" disabled={!inputRecipe.name||!inputRecipe.summary||errors.name||errors.summary||errors.healthScore||errors.image}></input>
+                <input value="Create" id={!inputRecipe.name||!inputRecipe.summary||errors.name||errors.summary||errors.healthScore||errors.image?"error":"sub"} type="submit" disabled={!inputRecipe.name||!inputRecipe.summary||errors.name||errors.summary||errors.healthScore||errors.image}></input>
             </form>
 
         </div>
