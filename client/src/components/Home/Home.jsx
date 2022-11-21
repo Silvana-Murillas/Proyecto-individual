@@ -10,13 +10,13 @@ const Home=()=>{
     const dispatch=useDispatch();
     const recip=useSelector(state=>state.recipes)
     const page=useSelector(state=>state.page)
+    const ref = React.useRef(true);
       
     React.useEffect(()=>{
     dispatch(actions.getRecipes())
+    const firstrender=ref.current
+    if(firstrender){ref.current=false}
     },[dispatch])
-    
-    
-    
    
     // const [recipesbypage,setrecipesbypage]=React.useState(9)
     
@@ -27,6 +27,15 @@ const Home=()=>{
                 <Nav></Nav>
               <img src="404.gif"></img>
              
+            </div>
+        )
+    }
+
+    if(!recip.length&&!ref.current){
+        return (
+            <div>
+                <Nav></Nav>
+                <h2>"There are not recipes with that  type of diet"</h2>
             </div>
         )
     }
