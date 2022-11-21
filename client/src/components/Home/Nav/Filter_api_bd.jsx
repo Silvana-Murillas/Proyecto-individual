@@ -5,10 +5,11 @@ import * as actions from "../../../redux/actions/index";
 const Bd_ApiFilter = () => {
   const dispatch = useDispatch();
   const activesorder = useSelector((state) => state.order);
-  console.log(activesfilters);
+  
 
   let handleChange = (e) => {
     e.preventDefault();
+
 
     if (e.target.value === "Created Recipes") {
       dispatch(actions.getRecipesbyquery(undefined, "Created Recipes")).then(
@@ -25,6 +26,7 @@ const Bd_ApiFilter = () => {
           if (activesorder === "Highest to Lowest") {
             dispatch(actions.filterHtoL());
           }
+            
         }
       );
     }
@@ -43,6 +45,7 @@ const Bd_ApiFilter = () => {
         if (activesorder === "Highest to Lowest") {
           dispatch(actions.filterHtoL());
         }
+       
       })
     }
   };
