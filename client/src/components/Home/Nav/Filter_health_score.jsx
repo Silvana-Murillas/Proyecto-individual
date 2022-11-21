@@ -9,19 +9,17 @@ const Healthscorefilter=()=>{
 
     let handleChange=(e)=>{
         e.preventDefault();
-        if(e.target.value==='remove'){
-            dispatch(actions.getRecipes())
-            
-        }
-    
+       
         if(e.target.value==="Lowest to Highest"){
             dispatch(actions.filterLtoH())
             dispatch(actions.typefilter(e.target.value))
+            
         } 
         
         if(e.target.value==="Highest to Lowest"){
             dispatch(actions.filterHtoL())
             dispatch(actions.typefilter(e.target.value))
+           
         }
     }
      
