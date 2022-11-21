@@ -115,21 +115,29 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #sub{
-    border-radius: 5px;
-    background-color: green;
-    color: rgb(4, 57, 4);
-    font-weight: 700;
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 15px;
-    width: max-content;
-    margin-left: 95px;
+  border-radius: 5px;
+  background:rgb(107, 203, 107);
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 15px;
+  width: max-content;
+  margin-left: 95px;
+   
     
 }
 
-#sub:hover{
-  background:rgb(107, 203, 107);
-  color: black;
+#error{
+  border-radius: 5px;
+  background-color: green;
+  color: rgb(4, 57, 4);
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 15px;
+  width: max-content;
+  margin-left: 95px;
+  cursor:pointer
+  
 }
 
 #inputimg{
@@ -177,7 +185,8 @@ input[type="range"]::-webkit-slider-thumb {
   .form p{
      color: red;
      font-size: small;
-     padding-left: 600px;
+     padding-left: 800px;
+     width: max-content;
   }
     
   .form {
@@ -270,8 +279,8 @@ input[type="range"]::-webkit-slider-thumb {
   
   #sub{
       border-radius: 5px;
-      background-color: green;
-      color: rgb(4, 57, 4);
+      background:rgb(107, 203, 107);
+      color: black;
       font-weight: 700;
       font-size: 20px;
       cursor: pointer;
@@ -280,9 +289,15 @@ input[type="range"]::-webkit-slider-thumb {
       margin-left:820px ;
   }
   
-  #sub:hover{
-    background:rgb(107, 203, 107);
-    color: black;
+  #error{
+    border-radius: 5px;
+      background-color: green;
+      color: rgb(4, 57, 4);
+      font-weight: 700;
+      font-size: 20px;
+      margin-top: 15px;
+      width: max-content;
+      margin-left:820px ;
   }
   
   #inputimg{
@@ -290,10 +305,24 @@ input[type="range"]::-webkit-slider-thumb {
     margin-left: 10px;
     width: 350px; 
   }
+  #errorsimg{
+    margin-right: 300px;
+    margin-left: 10px;
+    width: 350px; 
+    border-color: red;
+    border-style: solid;
+  }
   #inputname{
     margin-right: 45px;
     width: 350px; 
     margin-left: 10px;
+  }
+  #errorsname{
+    margin-right: 45px;
+    width: 350px; 
+    margin-left: 10px; 
+    border-color: red;
+    border-style: solid;
   }
   .lab{
     display: inline-flex;
@@ -306,10 +335,10 @@ input[type="range"]::-webkit-slider-thumb {
     width: 880px;
     margin-left: 950px;
   }
-  input.error{
+  /* input.error{
     border-color: red;
     border-style: solid;
-  }
+  } */
 
 
 }
