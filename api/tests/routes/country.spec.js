@@ -79,4 +79,7 @@ describe('POST/recipes',(done)=>{
   }
   )}
   )
+  it("Should return status (404) if does not send name and summary",(done)=>{
+    request(app).post('/recipes').expect(404).then(done())
+  })
 })
