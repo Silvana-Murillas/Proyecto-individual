@@ -95,12 +95,12 @@ const CreateRecipe=()=>{
           </NavLink>
             <form onSubmit={handlerOnSubmit}>
                 <h2>Create Recipe</h2>
-                <label className="lab" id="imgl"> Recipe Image (URL): <input  id={errors.image?"errorsimg":"inputimg"} type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
+                <label className="lab" id="imgl"> Recipe Image (URL): <input  id="inputimg" type="url" name='image' value={inputRecipe.image} onChange={handlerOnchange}></input></label>
                 {errors.image&&<p>{errors.image}</p>}
-                <label className="lab"> Recipe Name : <input  id={errors.image?"errorsname":"inputname"} type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
+                <label className="lab"> Recipe Name : <input  id="inputname" type="text" name="name" value={inputRecipe.name} onChange={handlerOnchange}></input></label>
                 {errors.name&&<p>{errors.name}</p>}
                 <label id="label"> Summary:</label>
-                <textarea className={errors.summary&&"error"} type="text" size="255" name="summary" value={inputRecipe.summary} onChange={handlerOnchange}></textarea>
+                <textarea type="text" size="255" name="summary" value={inputRecipe.summary} onChange={handlerOnchange}></textarea>
                 {errors.summary&&<p>{errors.summary}</p>}
                 <label id="label">HealthScore:</label>
                 <label id="labelhs">  {inputRecipe.healthScore} <input type="range" max="100" min="0" name= "healthScore" value={inputRecipe.healthScore} onChange={handlerOnchange}></input></label>
