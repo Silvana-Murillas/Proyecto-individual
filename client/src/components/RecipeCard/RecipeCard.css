@@ -42,6 +42,17 @@
     font-size: medium;
 
 }
+.btn{
+    width: fit-content;
+    align-self: center;
+    background: rgba(255, 0, 0, 0.474);
+    border: transparent;
+    font-weight: bold;
+    border-radius: 2px;
+    font-size: larger;
+    cursor:pointer
+
+}
 
 @media only screen and (min-width: 1440px){
 
@@ -88,6 +99,17 @@
         margin-bottom:5px ;
         font-size: medium;
     
+    }
+    .btn{
+        width: fit-content;
+        align-self: center;
+        background: rgba(255, 0, 0, 0.474);
+        border: transparent;
+        font-weight: bold;
+        border-radius: 2px;
+        font-size: larger;
+        cursor:pointer
+
     }
 
 }

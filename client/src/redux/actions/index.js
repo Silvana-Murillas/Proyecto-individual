@@ -95,21 +95,19 @@ export const postRecipe=({ name,image,summary,healthScore,steps,diets})=>{
  }
 
 }
-// export const getBd=(bd)=>{
-//    return function(dispatch){
-//       return axios.get(`http://localhost:3001/recipes/?bd=${bd}`)
-//       .then(r=>r.data)
-//       .then(data=>dispatch({type:GET_BD,payload:data}))
-//       .catch(error=>error.message)
-// }}
 
-// export const getApi=(api)=>{
-//    return function(dispatch){
-//       return axios.get(`http://localhost:3001/recipes/?api=${api}`)
-//       .then(r=>r.data)
-//       .then(data=>dispatch({type:GET_API,payload:data}))
-//       .catch(error=>error.message)
-// }}
+export const deleteRecipe=(id)=>{
+   return function(dispatch){
+     return axios.delete(`http://localhost:3001/recipes/${id}`)
+     .then(r=>r.data)
+     .then(data=>alert(data))
+
+     .catch(error=>alert(`Sorry something go wrong: ${error.message}`))
+   }
+  
+  }
+
+
 
 export const sendPage=(page)=>{
    return {type:SENDPAGE, payload:page}

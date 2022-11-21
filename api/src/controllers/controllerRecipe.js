@@ -187,4 +187,47 @@ const getRecipebyid = async (id) => {
   }
 };
 
-module.exports = { addRecipe, getRecipe, getRecipebyid, getBd, getApi };
+// const updateRecipe=async(id,name,image,summary,healthScore,steps)=>{
+//  try{
+//   if (
+//     /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)
+//   ){
+  
+//     await Recipe.update({name,image,summary,healthScore,steps},{where:{id}})
+
+//     return "Receta Actualizada"
+
+//   }
+
+//   else{throw new Error ('This recipe can not be update')}
+  
+//  }catch(error){
+//   throw error;
+//  }
+  
+// }
+
+const deleteRecipe=async(id)=>{
+   try{
+  if (
+    /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)
+  ){
+  
+     const recipe=await Recipe.findByPk(id)
+     if(!recipe){throw new Error ("Recipe does not exist")}
+     recipe.destroy()
+
+    return recipe;
+
+  }
+
+  else{throw new Error ('This recipe can not be delete')}
+  
+ }catch(error){
+  throw error;
+ }
+
+}
+
+
+module.exports = { addRecipe, getRecipe, getRecipebyid, getBd, getApi,deleteRecipe };

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {addRecipe,getRecipe,getRecipebyid,getBd,getApi}=require('../controllers/controllerRecipe')
+const {addRecipe,getRecipe,getRecipebyid,getBd,getApi,deleteRecipe}=require('../controllers/controllerRecipe')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -65,7 +65,39 @@ router.get('/:id',async (req,res)=>{
     }
 })
 
+router.delete('/:id',async (req,res)=>{
+try {
+    const {id}=req.params;
+    await deleteRecipe(id);
+    return res.status(200).send('recipe successfully deleted')
+} catch (error) {
+    return res.status(404).send(error.message)
+}
+})
+
+
 
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+// router.put('/:id',async(req,res)=>{
+//     try {
+//         const {id}=req.params;
+        
+//         const {name,image,summary,healthScore,steps}=req.body
+//         const recipeupdate=await updateRecipe(id,name,image,summary,healthScore,steps)
+//         return res.status(201).send(recipeupdate)
+        
+//     } catch (error) {
+//         return res.status(404).send(error.message)
+//     }
+// })
