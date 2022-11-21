@@ -105,12 +105,6 @@ const rootReducer=(state=initialState,action)=>{
 
       return ({...state,page:action.payload});
 
-    // case GET_BD:
-    //   console.log(action.payload)
-    //   return ({...state,recipes:action.payload})
-
-    // case GET_API:
-    //   return ({...state,recipes:action.payload})
 
     case TYPE_FILTER:
       console.log(action.payload)
