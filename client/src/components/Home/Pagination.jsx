@@ -42,9 +42,9 @@ const Pages=({page})=>{
 
     return (
         <div >
-            <button className="pag" onClick={(e)=>handlerPrev(e,page)}>⋘</button>
+            <button className="pag" onClick={(e)=>handlerPrev(e,page)}>ᐊ</button>
           {pages&&pages.map(p=><button key={p} className={p===page?"pageactual":"pag"} onClick={(e)=>handlerClick(e,p)}>{p}</button>)}
-          <button className="pag" onClick={(e)=>handlerNext(e,page)}>⋙</button>
+          <button className="pag" onClick={(e)=>handlerNext(e,page)}>ᐅ</button>
         </div>
     )
 
