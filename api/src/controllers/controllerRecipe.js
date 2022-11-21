@@ -1,6 +1,6 @@
 const e = require("express");
 const { Recipe, Diet } = require("../db");
-const { URL_API, API_KEY, URL_APIBYID, API_KEY1 } = process.env;
+const { URL_API, API_KEY, URL_APIBYID, API_KEY1,NUMBER } = process.env;
 const axios = require("axios");
 const { Op } = require("sequelize");
 
@@ -60,7 +60,7 @@ const getBd = async (name) => {
 
 const getApi = async (name) => {
   const getInfoApi = await axios.get(
-    `${URL_API}?apiKey=${API_KEY1}&addRecipeInformation=true&number=10`
+    `${URL_API}?apiKey=${API_KEY}&addRecipeInformation=true&number=${NUMBER}`
   );
   const infoapi = await getInfoApi.data.results;
 
@@ -139,7 +139,7 @@ const getRecipebyidfromDB = async (id) => {
 };
 const getRecipebyidfromApi = async (id) => {
   const getInfoApi = await axios.get(
-    `${URL_APIBYID}${id}/information?apiKey=${API_KEY1}`
+    `${URL_APIBYID}${id}/information?apiKey=${API_KEY}`
   );
   const infoapi = await getInfoApi.data;
 
