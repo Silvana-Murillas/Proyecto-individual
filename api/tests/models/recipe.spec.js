@@ -14,8 +14,14 @@ describe('Recipe model', () => {
           .then(() => done(new Error('It requires a valid name')))
           .catch(() => done());
       });
-      it('should work when its a valid name', () => {
-        Recipe.create({ name: 'Milanesa a la napolitana' });
+      it('should work when its a valid name', (done) => {
+        Recipe.create({ name: 'Milanesa a la napolitana',summary:'Milanesa a la napolitana' }).then(done());
+        Recipe.findAll({where:{name:'Milanesa a la napolitana'}}).end((error,res)=>{if(error){console.log(error); done(error)}
+        else{
+          
+          expect(res.name).equal('Milanesa a la napolitana');done()
+        }
+      })
       });
     });
   });
