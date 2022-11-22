@@ -16,7 +16,7 @@ import axios from 'axios';
 
  export const getRecipes=()=>{
     return function(dispatch){
-        return axios.get('http://localhost:3001/recipes')
+        return axios.get('https://proyecto-individual-production-226b.up.railway.app/recipes')
         .then(r=>r.data)
         .then(data=>dispatch({type:GET_ALL_RECIPES,payload:data}))
         .catch(error=>alert(error.message))
@@ -37,7 +37,7 @@ import axios from 'axios';
             query=`source=${source}`
          }
       }
-        return axios.get(`http://localhost:3001/recipes?${query}`)
+        return axios.get(`https://proyecto-individual-production-226b.up.railway.app/recipes?${query}`)
         .then(r=>r.data)
         .then(data=>dispatch({type:GET_ALL_RECIPES_BYQUERY,payload:data}))
         .catch(error=>dispatch({type:GET_ALL_RECIPES_BYQUERY, payload:error.response.data}))
@@ -70,7 +70,7 @@ import axios from 'axios';
 
  export const getRecipebyid=(id)=>{
    return function(dispatch){
-       return axios.get(`http://localhost:3001/recipes/${id}`)
+       return axios.get(`https://proyecto-individual-production-226b.up.railway.app/recipes/${id}`)
        .then(r=>r.data)
        .then(data=>dispatch({type:GET_RECIPE_DETAIL,payload:data}))
        .catch(error=>alert(error.message))
@@ -79,7 +79,7 @@ import axios from 'axios';
 
 export const getDiets=()=>{
    return function(dispatch){
-       return axios.get(`http://localhost:3001/diets`)
+       return axios.get(`https://proyecto-individual-production-226b.up.railway.app/diets`)
        .then(r=>r.data)
        .then(data=>dispatch({type:GET_DIETS,payload:data}))
        .catch(error=>alert(error.message))
@@ -88,7 +88,7 @@ export const getDiets=()=>{
 
 export const postRecipe=({ name,image,summary,healthScore,steps,diets})=>{
  return function(dispatch){
-   return axios.post('http://localhost:3001/recipes',{name,image,summary,healthScore,steps,diets:Array.from(diets)})
+   return axios.post('https://proyecto-individual-production-226b.up.railway.app/recipes',{name,image,summary,healthScore,steps,diets:Array.from(diets)})
    .then(r=>r.data)
    .then(data=>alert(data))
    .catch(error=>alert(`Sorry something go wrong: ${error.message}`))
@@ -98,7 +98,7 @@ export const postRecipe=({ name,image,summary,healthScore,steps,diets})=>{
 
 export const deleteRecipe=(id)=>{
    return function(dispatch){
-     return axios.delete(`http://localhost:3001/recipes/${id}`)
+     return axios.delete(`https://proyecto-individual-production-226b.up.railway.app/recipes/${id}`)
      .then(r=>r.data)
      .then(data=>alert(data))
 
