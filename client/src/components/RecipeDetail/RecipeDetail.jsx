@@ -10,7 +10,9 @@ const RecipeDetail = (props) => {
   let history = useHistory();
 
   React.useEffect(() => {
+    
     dispatch(actions.getRecipebyid(props.match.params.id));
+    // eslint-disable-next-line
   }, [dispatch]);
 
   const handlerClick = (e) => {
@@ -54,9 +56,9 @@ const RecipeDetail = (props) => {
         <div className="step">
           <h2>Steps</h2>
           {recipesdetail.steps && Array.isArray(recipesdetail.steps) ? (
-          recipesdetail.steps.map((s) => <p key={s.numner}>{`${s.number} ${s.step}`}</p>)
+          recipesdetail.steps.map((s) => <p key={s.number}>{`${s.number} ${s.step}`}</p>)
           ) : (
-          <p>{recipesdetail.steps}</p>
+          <p key={recipesdetail.steps}>{recipesdetail.steps}</p>
            )}
         </div>
       </div>

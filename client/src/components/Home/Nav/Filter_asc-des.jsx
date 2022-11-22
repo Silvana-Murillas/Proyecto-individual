@@ -1,11 +1,11 @@
 import React from "react";
-import {useDispatch,useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import * as actions from "../../../redux/actions/index"
 
 
 const Alphabeticfilter=()=>{
     const dispatch=useDispatch();
-    // const activesfilters=useSelector(state=>state.filter)
+   
 
     let handleChange=(e)=>{
         e.preventDefault();
@@ -13,12 +13,14 @@ const Alphabeticfilter=()=>{
         if(e.target.value==='A-Z'){
             dispatch(actions.filterAZ())
             dispatch(actions.typefilter(e.target.value))
+           
             
         } 
     
         if(e.target.value==='Z-A'){
             dispatch(actions.filterZA())
             dispatch(actions.typefilter(e.target.value))
+            
         }
     }
      

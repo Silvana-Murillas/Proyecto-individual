@@ -6,14 +6,14 @@ import Alphabeticfilter from "./Filter_asc-des";
 import Healthscorefilter from "./Filter_health_score";
 import Dietfilter from "./Filterbydiet";
 import { NavLink } from "react-router-dom";
-import Bd_ApiFilter from "./Filter_api_bd";
-import {useDispatch} from 'react-redux'
-import * as actions from "../../../redux/actions/index"
+import BdaApifilter from "./Filter_api_bd";
+// import {useDispatch} from 'react-redux'
+// import * as actions from "../../../redux/actions/index"
 import "./Nav.css"
 
 
 const Nav=()=>{
-  const dispatch=useDispatch();
+  
   const handlerOnclick=(e)=>{
     e.preventDefault();
     window.location.reload()
@@ -25,7 +25,7 @@ const Nav=()=>{
           <Alphabeticfilter></Alphabeticfilter>
           <Healthscorefilter></Healthscorefilter>
           <Dietfilter></Dietfilter>
-          <Bd_ApiFilter></Bd_ApiFilter>
+          <BdaApifilter></BdaApifilter>
           <button className="but" onClick={handlerOnclick}>Refresh</button>
           <NavLink to="/home/create">Create Recipe</NavLink>
         </div>

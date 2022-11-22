@@ -1,18 +1,25 @@
 .pag  {
-    border-radius: 5px;
+    border-radius: 8px;
     background: #aad576;
     border: transparent;
     margin:5px;
     margin-top: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     margin-bottom: 17px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', "Geneva", "Verdana", "sans-serif";
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    width:35px ;
+    color: rgb(10, 11, 10);
 }
 
 .pageactual{
-    border-radius: 5px;
+    width:35px ;
+    border-radius: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     background: #e8aa14;
     color: white;
     border: transparent;
@@ -20,7 +27,7 @@
     margin-top: 20px;
     margin-bottom: 17px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', "Geneva", "Verdana", "sans-serif";
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
 }

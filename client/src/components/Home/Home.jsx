@@ -25,7 +25,7 @@ const Home=()=>{
         return (
             <div>
                 <Nav></Nav>
-              <img src="404.gif"></img>
+              <img src="404.gif" alt='Error 404'></img>
              
             </div>
         )

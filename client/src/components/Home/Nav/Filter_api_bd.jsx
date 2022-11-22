@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../../redux/actions/index";
 
-const Bd_ApiFilter = () => {
+const BdaApifilter = () => {
   const dispatch = useDispatch();
   const activesorder = useSelector((state) => state.order);
   
@@ -65,4 +65,4 @@ const Bd_ApiFilter = () => {
   );
 };
 
-export default Bd_ApiFilter;
+export default BdaApifilter;

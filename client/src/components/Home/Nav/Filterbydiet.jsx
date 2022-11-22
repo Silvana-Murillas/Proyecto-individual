@@ -18,7 +18,8 @@ const Dietfilter=()=>{
         if(activesorder==="A-Z"){dispatch(actions.filterAZ())}
         if(activesorder==="Z-A"){dispatch(actions.filterZA())}
         if(activesorder==="Lowest to Highest"){dispatch(actions.filterLtoH())}
-        if(activesorder==="Highest to Lowest"){dispatch(actions.filterHtoL())}       
+        if(activesorder==="Highest to Lowest"){dispatch(actions.filterHtoL())}  
+           
      
     
     }
