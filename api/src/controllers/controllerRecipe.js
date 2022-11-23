@@ -63,7 +63,9 @@ const getApi = async (name) => {
   const getInfoApi = await axios.get(
     `${URL_API}?apiKey=${API_KEY1}&addRecipeInformation=true&number=${NUMBER}`
   );
+  console.log("getInfoApi", getInfoApi);
   const infoapi = await getInfoApi.data.results;
+  console.log(infoapi)
 
   const info = infoapi.map((e) => {
     let diets = e.diets;
