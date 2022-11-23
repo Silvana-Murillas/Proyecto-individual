@@ -37,11 +37,11 @@ describe("GET /recipes", (done) => {
           console.log(error);
           done(error);
         } else {
-          expect(res.body.slice(10)[0].name).equal("Milanea a la napolitana");
+          expect(res.body.slice(100)[0].name).equal("Milanea a la napolitana");
           done();
         }
       });
-  });
+  }).timeout(5000);
   it("should replay the query in the GET method when the query is provided ", (done) => {
     request(app)
       .get("/recipes?name=Milanea a la napolitana")
@@ -54,7 +54,7 @@ describe("GET /recipes", (done) => {
           done();
         }
       });
-  });
+  }).timeout(3000);
   it("should replay with the recipe if recives the id by params", (done) => {
     request(app)
       .get(`/recipes/716426`)
