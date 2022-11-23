@@ -35,7 +35,7 @@ const Home=()=>{
         return (
             <div>
                 <Nav></Nav>
-                <h2>"There are not recipes with that  type of diet"</h2>
+                <h2>"There are not recipes that match the search criteria"</h2>
             </div>
         )
     }
