@@ -21,8 +21,8 @@ const rootReducer=(state=initialState,action)=>{
         return ({...state,recipes:action.payload});
     
     case FILTER_AZ:
-
-      let result=state.recipes.sort(
+      let result=[...state.recipes]
+       result=result.sort(
         function(a, b){
           if (a.name.toLowerCase() > b.name.toLowerCase()){
             return 1
@@ -33,7 +33,7 @@ const rootReducer=(state=initialState,action)=>{
           return 0;
         })
       
-      return ({...state,recipes:Array.from(result, x => x)});
+      return ({...state,recipes:result});
       
     case FILTER_ZA:
       console.log('Im the filteer')
