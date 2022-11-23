@@ -44,6 +44,7 @@ const getBd = async (name) => {
     });
     return findbyName;
   }
+ 
   const recipes = await Recipe.findAll({
     include: [
       {
@@ -60,7 +61,7 @@ const getBd = async (name) => {
 
 const getApi = async (name) => {
   const getInfoApi = await axios.get(
-    `${URL_API}?apiKey=${API_KEY}&addRecipeInformation=true&number=${NUMBER}`
+    `${URL_API}?apiKey=${API_KEY1}&addRecipeInformation=true&number=${NUMBER}`
   );
   const infoapi = await getInfoApi.data.results;
 
@@ -97,12 +98,14 @@ const getApi = async (name) => {
       e.name.toLowerCase().includes(name.toLowerCase())
     );
   }
+  
 
   return info;
 };
 
 const getRecipe = async (name) => {
   try {
+    
     if (name) {
       const nameApi = await getApi(name);
 
@@ -112,6 +115,7 @@ const getRecipe = async (name) => {
       const nameApi_bD = nameApi.concat(namebD);
       return nameApi_bD;
     }
+   
 
     const Api = await getApi();
     const bD = await getBd();
@@ -139,7 +143,7 @@ const getRecipebyidfromDB = async (id) => {
 };
 const getRecipebyidfromApi = async (id) => {
   const getInfoApi = await axios.get(
-    `${URL_APIBYID}${id}/information?apiKey=${API_KEY}`
+    `${URL_APIBYID}${id}/information?apiKey=${API_KEY1}`
   );
   const infoapi = await getInfoApi.data;
 
@@ -187,25 +191,6 @@ const getRecipebyid = async (id) => {
   }
 };
 
-// const updateRecipe=async(id,name,image,summary,healthScore,steps)=>{
-//  try{
-//   if (
-//     /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)
-//   ){
-  
-//     await Recipe.update({name,image,summary,healthScore,steps},{where:{id}})
-
-//     return "Receta Actualizada"
-
-//   }
-
-//   else{throw new Error ('This recipe can not be update')}
-  
-//  }catch(error){
-//   throw error;
-//  }
-  
-// }
 
 const deleteRecipe=async(id)=>{
    try{

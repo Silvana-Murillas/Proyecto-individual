@@ -15,6 +15,7 @@ router.get('/',async (req,res)=>{
         return res.status(201).send(searchDiets)
              
     } catch (error) {
+        console.log(error)
         return res.status(404).send(error.message)
     }
 })

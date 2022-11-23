@@ -22,6 +22,7 @@ router.post('/',async(req,res)=>{
         return res.status(201).send('Receta creada existosamente');
         
     } catch (error) {
+        console.log(error)
         return res.status(404).send(error.message);
         
     }
@@ -30,11 +31,13 @@ router.post('/',async(req,res)=>{
 router.get('/',async (req,res)=>{
     try {
         const {name,source}=req.query;
+        
         if(name){
             const searchRecipe= await getRecipe(name)
             
             return res.status(201).send(searchRecipe)
         }
+       
         if(source==="Created Recipes"){
             const recipesbd=await getBd(); 
             return res.status(201).send(recipesbd)      
@@ -47,7 +50,8 @@ router.get('/',async (req,res)=>{
         const recipes= await getRecipe();
         
         return res.status(201).send(recipes)        
-    } catch (error) {        
+    } catch (error) {   
+        console.log(error)     
         return res.status(404).send({error:error.message})
     }
 })
@@ -71,6 +75,7 @@ try {
     await deleteRecipe(id);
     return res.status(200).send('recipe successfully deleted')
 } catch (error) {
+    console.log(error)
     return res.status(404).send(error.message)
 }
 })
