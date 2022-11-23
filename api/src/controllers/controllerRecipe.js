@@ -1,6 +1,6 @@
 const e = require("express");
 const { Recipe, Diet } = require("../db");
-const { URL_API, API_KEY, URL_APIBYID, API_KEY1,NUMBER } = process.env;
+const { URL_API, API_KEY, URL_APIBYID, API_KEY1, NUMBER } = process.env;
 const axios = require("axios");
 const { Op } = require("sequelize");
 
@@ -44,7 +44,7 @@ const getBd = async (name) => {
     });
     return findbyName;
   }
- 
+
   const recipes = await Recipe.findAll({
     include: [
       {
@@ -64,7 +64,7 @@ const getApi = async (name) => {
     `${URL_API}?apiKey=${API_KEY1}&addRecipeInformation=true&number=${NUMBER}`
   );
   const infoapi = await getInfoApi.data.results;
-  
+
   const info = infoapi.map((e) => {
     let diets = e.diets;
     if (e.vegetarian) {
@@ -78,14 +78,14 @@ const getApi = async (name) => {
       summary: e.summary,
       healthScore: e.healthScore,
       diets: diets,
-      steps:
-        e.analyzedInstructions.length &&
-        e.analyzedInstructions[0].steps.map((e) => {
-          return {
-            number: e.number,
-            step: e.step,
-          };
-        }),
+      steps: e.analyzedInstructions.length
+        ? e.analyzedInstructions[0].steps.map((e) => {
+            return {
+              number: e.number,
+              step: e.step,
+            };
+          })
+        : [],
     };
   });
   info.forEach((rec) =>
@@ -98,14 +98,12 @@ const getApi = async (name) => {
       e.name.toLowerCase().includes(name.toLowerCase())
     );
   }
-  
 
   return info;
 };
 
 const getRecipe = async (name) => {
   try {
-    
     if (name) {
       const nameApi = await getApi(name);
 
@@ -115,7 +113,6 @@ const getRecipe = async (name) => {
       const nameApi_bD = nameApi.concat(namebD);
       return nameApi_bD;
     }
-   
 
     const Api = await getApi();
     const bD = await getBd();
@@ -159,14 +156,14 @@ const getRecipebyidfromApi = async (id) => {
     summary: infoapi.summary,
     healthScore: infoapi.healthScore,
     diets: diets,
-    steps:
-      infoapi.analyzedInstructions.length &&
-      infoapi.analyzedInstructions[0].steps.map((e) => {
-        return {
-          number: e.number,
-          step: e.step,
-        };
-      }),
+    steps: infoapi.analyzedInstructions.length
+      ? infoapi.analyzedInstructions[0].steps.map((e) => {
+          return {
+            number: e.number,
+            step: e.step,
+          };
+        })
+      : [],
   };
   return infobyId;
 };
@@ -191,28 +188,33 @@ const getRecipebyid = async (id) => {
   }
 };
 
+const deleteRecipe = async (id) => {
+  try {
+    if (
+      /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(
+        id
+      )
+    ) {
+      const recipe = await Recipe.findByPk(id);
+      if (!recipe) {
+        throw new Error("Recipe does not exist");
+      }
+      recipe.destroy();
 
-const deleteRecipe=async(id)=>{
-   try{
-  if (
-    /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)
-  ){
-  
-     const recipe=await Recipe.findByPk(id)
-     if(!recipe){throw new Error ("Recipe does not exist")}
-     recipe.destroy()
-
-    return recipe;
-
+      return recipe;
+    } else {
+      throw new Error("This recipe can not be delete");
+    }
+  } catch (error) {
+    throw error;
   }
+};
 
-  else{throw new Error ('This recipe can not be delete')}
-  
- }catch(error){
-  throw error;
- }
-
-}
-
-
-module.exports = { addRecipe, getRecipe, getRecipebyid, getBd, getApi,deleteRecipe };
+module.exports = {
+  addRecipe,
+  getRecipe,
+  getRecipebyid,
+  getBd,
+  getApi,
+  deleteRecipe,
+};
