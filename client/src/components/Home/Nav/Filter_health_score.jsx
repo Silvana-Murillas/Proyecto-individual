@@ -30,7 +30,6 @@ const Healthscorefilter=()=>{
             <form>
                 <select onChange={handleChange}>
                     <option disabled selected>Order by HealthScore</option>
-                    <option value="remove">Remove filter</option>
                     <option value="Lowest to Highest">Lowest to Highest</option>
                     <option value="Highest to Lowest">Highest to Lowest</option>
                 </select>    
