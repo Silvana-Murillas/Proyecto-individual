@@ -14,7 +14,7 @@ const SearchBar=()=>{
      
     let handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(inputName)
+        
         dispatch(actions.getRecipesbyquery(inputName))
     }
 
@@ -22,7 +22,7 @@ const SearchBar=()=>{
         <div >
         <form className="search" onSubmit={handleSubmit}>
 
-            <input placeholder="Buscar por nombre" type='text' name="name" onChange={handleChange} value={inputName}></input>
+            <input placeholder="Search by Name" type='text' name="name" onChange={handleChange} value={inputName}></input>
             <button type="submit">🔍</button>
         </form>
         </div>
