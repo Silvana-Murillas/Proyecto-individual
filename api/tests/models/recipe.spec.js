@@ -19,7 +19,7 @@ describe("Recipe model", () => {
       it("should work when its a valid name", async () => {
         await Recipe.create({ name: "Frijoles", summary: "Frijoles" });
         const res = await Recipe.findAll({ where: { name: "Frijoles" } });
-        console.log(res[0].dataValues.name);
+  
         expect(res[0].dataValues.name).equal("Frijoles");
       });
       it("should throw error if image is not valid", async () => {
