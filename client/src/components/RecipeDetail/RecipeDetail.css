@@ -48,11 +48,11 @@
 
 .info{
     
-    backdrop-filter: blur(16px) saturate(180%);
+    /* backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(253, 253, 253, 0.76);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    border: 1px solid rgba(255, 255, 255, 0.125); */
     height: fit-content;
    
     
@@ -135,6 +135,13 @@
 }
 
 @media only screen and (min-width: 1440px){
+    .detail{
+        display: flex;
+        justify-content: center;
+        background:#b5c99a ;
+        height:1250px ;
+        
+    }
     .container{
         display:flex;
         flex-direction: row-reverse;
@@ -142,9 +149,17 @@
         "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
         font-size: 15px;
         color:black;
-        background:#b5c99a ;
-      
-        height:fit-content
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(253, 253, 253, 0.76);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        
+        margin-top:50px ;
+        height:fit-content;
+        width: 1500px;
+        
+        
        
        
         /* #6a994e */    
@@ -155,9 +170,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        margin-left: 20px;
+        margin-left: 30px;
         margin-right: 20px;
-        margin-top: 100px;
+        margin-top: 250px;
+        height: 600px;
        
       }
     
@@ -176,7 +192,7 @@
        
     }
     .navlink a {
-        margin-top: 0px;
+        margin-top: 30px;
         margin-left: 250px;
         background: transparent;
         align-items: center;
@@ -193,31 +209,26 @@
     
     .info{
         
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        background-color: rgba(253, 253, 253, 0.76);
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.125);
+       
         height: fit-content;
         width: 810px;
-        margin-right: 200px;
-        margin-top: 85px;
-        
-       
+        margin-left: 60px;
+        margin-top: 95px;   
         
     }
     
     
     .container img {
-        margin-top: 20px;
+        
         margin-bottom: 350px;
-        margin-right: 200px;
-        width:630px;
-        height:479px;
-        border-radius: 14px;
+        margin-top: 40px;
+        margin-right: 60px;
+        width:600px;
+        height:449px;
+        border-radius: 5px;
         background: #b5c99a;
-        box-shadow:  30px 30px 32px #94a57e,
-                 -30px -30px 32px #d6edb6;
+        box-shadow:  15px 15px 17px #94a57e,
+                 -20px -20px 22px #d6edb6;
        
     
         
@@ -283,6 +294,7 @@
     .info h1{
         margin: 5px 5px 8px 5px;
         color: rgb(241, 142, 55);
+        
     }
 
 }

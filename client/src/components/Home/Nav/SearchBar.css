@@ -1,19 +1,31 @@
 
+.search  {
+    border-radius: 50px;
+    border: rgb(193, 250, 108);
+    background: #cff8c4;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    
+}
 .search input {
     border-radius: 50px;
     border: rgb(193, 250, 108);
-    height: 25px;
-    width: 200px;
+    
+    width: 150px;
     background: #cff8c4;
     opacity: 0.7;
-    padding-left: 50px;
+    padding-left: 60px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', "Geneva", "Verdana", "sans-serif";
     margin-left: 5px;
-    margin-bottom: 5px;
+    
+    
+   
 
     
 }
 .search input::placeholder{
+    
     color: rgb(26, 137, 26);
     font-weight:bold ;
     opacity: 0.7;
@@ -27,8 +39,9 @@
     border-radius: 50px;
     border: transparent;
     height: 20px;
-    margin: 5px 5px 5px 10px;
-    background: rgb(167,201,87);
+  padding: 0px;
+    background: #cff8c4;
     font-size: larger;
     cursor: pointer;
+    margin-right: 5px;
 }
