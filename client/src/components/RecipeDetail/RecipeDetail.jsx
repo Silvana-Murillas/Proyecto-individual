@@ -9,6 +9,8 @@ const RecipeDetail = (props) => {
   const recipesdetail = useSelector((state) => state.recipesdetail);
   let history = useHistory();
 
+  
+
   React.useEffect(() => {
     dispatch(actions.getRecipebyid(props.match.params.id));
     // eslint-disable-next-line
@@ -19,6 +21,7 @@ const RecipeDetail = (props) => {
   };
 
   return (
+    <div className="detail">
     <div className="container">
       <div className="navlink">
         <NavLink to="/home">
@@ -66,6 +69,7 @@ const RecipeDetail = (props) => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };
